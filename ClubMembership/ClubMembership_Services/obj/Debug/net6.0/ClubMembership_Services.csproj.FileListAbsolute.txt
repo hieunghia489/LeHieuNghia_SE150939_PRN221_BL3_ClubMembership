@@ -1,0 +1,16 @@
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\appsetting.json
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\ClubMembership_Services.deps.json
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\ClubMembership_Services.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\ClubMembership_Services.pdb
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\ClubMembership_Repositories.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\bin\Debug\net6.0\ClubMembership_Repositories.pdb
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.csproj.AssemblyReference.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.AssemblyInfoInputs.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.AssemblyInfo.cs
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.csproj.CopyComplete
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\refint\ClubMembership_Services.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ClubMembership_Services.pdb
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_Services\obj\Debug\net6.0\ref\ClubMembership_Services.dll

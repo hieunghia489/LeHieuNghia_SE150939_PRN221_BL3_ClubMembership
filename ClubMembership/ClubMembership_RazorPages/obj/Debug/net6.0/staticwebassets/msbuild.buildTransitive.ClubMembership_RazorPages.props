@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ClubMembership_RazorPages.props" />
+</Project>

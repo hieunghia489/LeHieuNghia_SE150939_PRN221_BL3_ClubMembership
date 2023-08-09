@@ -1,0 +1,15 @@
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\bin\Debug\net6.0\ClubMembership_Repositories.deps.json
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\bin\Debug\net6.0\ClubMembership_Repositories.runtimeconfig.json
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\bin\Debug\net6.0\ClubMembership_Repositories.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\bin\Debug\net6.0\ClubMembership_Repositories.pdb
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.csproj.AssemblyReference.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.AssemblyInfoInputs.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.AssemblyInfo.cs
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\refint\ClubMembership_Repositories.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.pdb
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ClubMembership_Repositories.genruntimeconfig.cache
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\obj\Debug\net6.0\ref\ClubMembership_Repositories.dll
+C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\Repositories\bin\Debug\net6.0\appsetting.json
