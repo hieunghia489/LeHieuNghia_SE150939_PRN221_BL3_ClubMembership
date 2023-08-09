@@ -2303,11 +2303,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2329,8 +2329,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ADMIN\\Source\\Repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\BusinessObject\\BusinessObject.csproj"
+            "C:\\Users\\ADMIN\\source\\repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\hieunghia489\\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\\ClubMembership\\BusinessObject\\BusinessObject.csproj"
             }
           }
         }

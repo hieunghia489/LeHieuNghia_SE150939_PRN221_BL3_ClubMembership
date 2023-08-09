@@ -1,0 +1,82 @@
+1. Club Membership : Major, Student, Club, Membership, Grade, ClubActivity, Participant
+
+2.Course Managerment: Semester, Subject, Major, Course, Student, StudentInCourse
+
+3. Capstone Project Registration: Semester, Student, StudentInsesmester, Group, Lecture, Topic, TopicOfLecture
+
+Database:
+
+ Major: 
+	Id
+	Code
+	Name
+	Description
+	Status
+
+ Grade(Thong tin ve Khoa):
+	Id
+	Code
+	Description
+	StartDate
+	EndDate
+	Status
+
+ Student:
+	Id
+	Code
+	Name
+	Id(Grade)
+	Gender
+	Birthday
+	Image
+	Id(Major)
+	DateEnroll
+	Status
+
+ Club:
+	Id
+	Code
+	Name
+	Description
+	CreateDate
+	Image
+	Status
+
+ Membership:
+	Id
+	Id(Student)
+	Id(Club)
+	StartDate
+	EndDate
+	Status
+	
+ ClubBoard:
+	Id
+	Semester
+	StartSemester
+	EndSemester
+	Id(Membership)
+	Id(Club)
+	Role
+	Status
+
+ ClubActivity:
+	Id
+	Id(Club)
+	Title
+	Description
+	StartDate
+	EndDate
+	Status
+	
+ Participant:
+	Id
+	Id(Membership)	
+	Id(ClubActivity)
+	Attend
+	Mision
+	Status
+
+
+
+
