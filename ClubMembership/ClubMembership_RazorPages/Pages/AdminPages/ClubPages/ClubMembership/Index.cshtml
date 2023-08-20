@@ -1,0 +1,66 @@
+﻿@page
+@model ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].JoinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].LeaveDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Membership) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoinDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Code)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

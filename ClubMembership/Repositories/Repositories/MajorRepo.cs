@@ -1,4 +1,4 @@
-﻿using ClubMembership_Repositories.Interfaces;
+﻿using ClubMembership_Repositories.IRepositories;
 using Repositories.Models;
 using System;
 using System.Collections.Generic;

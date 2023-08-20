@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubMembership_Repositories.Interfaces
+namespace ClubMembership_Repositories.IRepositories
 {
     public interface IGradeRepo
     {

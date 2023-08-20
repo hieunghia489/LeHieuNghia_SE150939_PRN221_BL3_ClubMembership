@@ -1,5 +1,5 @@
-﻿using ClubMembership_Repositories.Interfaces;
-using ClubMembership_Services.Interfaces;
+﻿using ClubMembership_Repositories.IRepositories;
+using ClubMembership_Services.IServices;
 using Repositories.Models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,6 @@ namespace ClubMembership_Services.Services
 
         public Grade GetGradeByCode(string code)=>_gradeRepo.GetByCode(code);
 
-        public IEnumerable<Grade> GetGrades()=>_gradeRepo.GetAll();
+        public IEnumerable<Grade> GetAll()=>_gradeRepo.GetAll();
     }
 }

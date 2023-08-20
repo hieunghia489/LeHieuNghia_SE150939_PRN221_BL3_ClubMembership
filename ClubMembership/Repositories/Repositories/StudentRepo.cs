@@ -1,4 +1,4 @@
-﻿using ClubMembership_Repositories.Interfaces;
+﻿using ClubMembership_Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Models;
 using System;
@@ -11,6 +11,7 @@ namespace ClubMembership_Repositories.Repositories
 {
     public class StudentRepo : IStudentRepo
     {
+
         public Student Get(int id)
         {
             using var context = new ClubMembershipContext();

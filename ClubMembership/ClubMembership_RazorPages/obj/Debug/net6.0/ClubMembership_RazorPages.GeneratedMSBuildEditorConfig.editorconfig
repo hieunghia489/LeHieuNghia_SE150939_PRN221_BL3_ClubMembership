@@ -16,6 +16,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ADMIN\source\repos\hieunghia489\LeHieuNghia_SE150939_PRN221_BL3_ClubMembership\ClubMembership\ClubMembership_RazorPages
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/ClubMembership/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1Yk1lbWJlcnNoaXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/ClubMembership/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1Yk1lbWJlcnNoaXBcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/ClubMembership/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1Yk1lbWJlcnNoaXBcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/ClubMembership/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1Yk1lbWJlcnNoaXBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/ClubMembership/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1Yk1lbWJlcnNoaXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/ClubPages/Clubs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xDbHViUGFnZXNcQ2x1YnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/Homepage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xIb21lcGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/AdminPages/Students.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlc1xTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,16 +56,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/SystemDataPages/MajorPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lzdGVtRGF0YVBhZ2VzXE1ham9yUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ADMIN/source/repos/hieunghia489/LeHieuNghia_SE150939_PRN221_BL3_ClubMembership/ClubMembership/ClubMembership_RazorPages/Pages/_ViewImports.cshtml]

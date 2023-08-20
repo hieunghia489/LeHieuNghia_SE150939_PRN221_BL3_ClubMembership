@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubMembership_Services.Interfaces
+namespace ClubMembership_Services.IServices
 {
     public interface IMajorService
     {

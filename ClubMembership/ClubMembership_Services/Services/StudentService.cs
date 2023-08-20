@@ -1,5 +1,5 @@
-﻿using ClubMembership_Repositories.Interfaces;
-using ClubMembership_Services.Interfaces;
+﻿using ClubMembership_Repositories.IRepositories;
+using ClubMembership_Services.IServices;
 using Repositories.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace ClubMembership_Services.Services
             _studentRepo = studentRepo;
         }
 
-        public IEnumerable<Student> GetGrades() => _studentRepo.GetAll();
+        public IEnumerable<Student> GetAll() => _studentRepo.GetAll();
 
         public Student GetStudent(int id)=> _studentRepo.Get(id);
 

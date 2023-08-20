@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubMembership_Services.Interfaces
+namespace ClubMembership_Services.IServices
 {
    public interface IGradeService
     {
-        IEnumerable<Grade> GetGrades();
+        IEnumerable<Grade> GetAll();
         Grade GetGrade(int id);
         Grade GetGradeByCode(string code);
     }

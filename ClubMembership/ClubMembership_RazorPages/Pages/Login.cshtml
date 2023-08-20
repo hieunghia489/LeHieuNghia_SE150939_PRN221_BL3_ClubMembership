@@ -1,0 +1,27 @@
+﻿@page "/"
+@model ClubMembership_RazorPages.Pages.LoginModel
+@{
+}
+
+<h1>Welcome to Club Membership Management Website</h1>
+ <h4>Please login in this form </h4>
+<form method="post" class="table-info">
+    <table>
+        <tr>
+            <td>Email</td>
+            <td><input asp-for="Email"/> </td>
+            <td> <span asp-validation-for="Email" style="color:red"></span> </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input asp-for="Password" /> </td>
+            <td> <span asp-validation-for="Password" style="color:red"></span> </td>
+        </tr>
+        <tr>
+            <td>Register !!!</td>
+            <td></td>
+            <td><input type="submit" value="Login"/></td>
+        </tr>
+    </table>
+</form>
+<h3 class="text-danger">@ViewData["Nofication"]</h3>

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubMembership_Services.Interfaces
+namespace ClubMembership_Services.IServices
 {
     public interface IStudentService
     {
-        IEnumerable<Student> GetGrades();
+        IEnumerable<Student> GetAll();
         Student GetStudent(int id);
         Student GetStudentByCode(string code);
     }
