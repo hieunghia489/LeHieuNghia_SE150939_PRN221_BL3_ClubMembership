@@ -33,4 +33,9 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\AdminPages\ClubPages\ClubActivities\" />
+    <Folder Include="Pages\AdminPages\ClubPages\ClubBoards\" />
+  </ItemGroup>
+
 </Project>

@@ -48,7 +48,7 @@ return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).ToList();
         {
             using var context = new ClubMembershipContext();
             List<Membership> list = new List<Membership>();
-            foreach (var item in context.Memberships.Include(c => c.Club))
+            foreach (var item in context.Memberships.Include(c => c.Club).Include(t => t.Student))
             {
                 if (item.ClubId == id)
                 {
