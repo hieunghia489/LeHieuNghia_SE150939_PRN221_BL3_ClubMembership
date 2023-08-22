@@ -12,7 +12,9 @@ namespace ClubMembership_Repositories.IRepositories
         List<ClubBoard> GetAll();
         ClubBoard Get(int id);
         List<ClubBoard> GetAllByClub(int id);
-        List<ClubBoard> GetCurrentByClub(int id);
+        ClubBoard GetCurrentByClub(int id);
+        void Add(ClubBoard clubBoard);
+        void Delete(ClubBoard clubBoard);
 
     }
 }

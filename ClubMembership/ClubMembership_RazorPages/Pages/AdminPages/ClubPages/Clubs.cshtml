@@ -55,9 +55,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Logo)
             </td>
-            <td>@Model.Members[item.Id] <a asp-page="./ClubMembership/Index" asp-route-id="@item.Id">View detail</a> </td>
+            <td>@Model.Members[item.Id] <a asp-page="./ClubMembership/Index" asp-route-id="@item.Id"> (View detail)</a> </td>
             <td>@Model.Activities[item.Id]</td>
-            <td>@Model.ClubBoards[item.Id]</td>
+            <td>@Model.ClubBoards[item.Id]<a asp-page="./ClubBoards/Index" asp-route-id="@item.Id"> (View detail)</a></td>
 
 @*            <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

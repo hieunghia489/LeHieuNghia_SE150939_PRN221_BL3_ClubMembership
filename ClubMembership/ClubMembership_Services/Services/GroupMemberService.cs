@@ -17,6 +17,10 @@ namespace ClubMembership_Services.Services
             _repo = repo;
         }
 
+        public void Added(GroupMember member)=>_repo.Added(member);
+
+        public void Delete(GroupMember member)=>_repo.Delete(member);
+
         public GroupMember Get(int id)=>_repo.Get(id);
 
         public List<GroupMember> GetAll()=>_repo.GetAll();

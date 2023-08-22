@@ -1,0 +1,81 @@
+﻿@page
+@model ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ClubBoard</h4>
+    <hr />
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ClubBoard.Club)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ClubBoard.Club.Code) -   @Html.DisplayFor(model => model.ClubBoard.Club.Name)
+    </dd>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubBoard.Semester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubBoard.Semester)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubBoard.StartSemester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubBoard.StartSemester)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubBoard.EndSemester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubBoard.EndSemester)
+        </dd>
+        <dt class="col-sm-2">
+            Members
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GroupMembers.Count)
+        </dd>
+    </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Member</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.GroupMembers)
+            {
+                @if (item.Role != "Member")
+                {
+                    <tr>
+                        <td> <h6>@item.Membership.Code</h6></td>
+                        <td> <h6>@item.Membership.Student.Code - @item.Membership.Student.Name</h6></td>
+                        <td> <h6>@item.Role</h6></td>
+                    </tr>
+                }
+            }
+            @foreach (var item in Model.GroupMembers)
+            {
+                @if (item.Role == "Member")
+                {
+                    <tr>
+                        <td> <h6>@item.Membership.Code</h6></td>
+                        <td> <h6>@item.Membership.Student.Code - @item.Membership.Student.Name</h6></td>
+                        <td> <h6>@item.Role</h6></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-page="./Index" asp-route-id="@Model.ClubBoard.ClubId">Back to List</a>
+</div>

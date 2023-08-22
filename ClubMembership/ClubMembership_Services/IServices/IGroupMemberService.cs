@@ -12,5 +12,7 @@ namespace ClubMembership_Services.IServices
         List<GroupMember> GetAll();
         GroupMember Get(int id);
         List<GroupMember> GetByClubBoard(int id);
+        void Added (GroupMember member);
+        void Delete (GroupMember member);
     }
 }

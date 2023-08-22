@@ -13,5 +13,6 @@ namespace Repositories.Models
 
         public virtual ClubBoard? ClubBoard { get; set; }
         public virtual Membership? Membership { get; set; }
+
     }
 }

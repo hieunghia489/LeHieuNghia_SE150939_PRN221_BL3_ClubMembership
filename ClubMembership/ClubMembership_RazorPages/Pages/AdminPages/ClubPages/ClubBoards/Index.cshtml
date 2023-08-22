@@ -1,0 +1,74 @@
+﻿@page
+@model ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Boards in Club </h1>
+<h3>@Model.currentBoard.Club.Code - @Model.currentBoard.Club.Name</h3>
+
+<p>
+    <a asp-page="Create" asp-route-id="@Model.currentBoard.ClubId">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.listBoards[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listBoards[0].StartSemester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listBoards[0].EndSemester)
+            </th>
+            <th>Members</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listBoards.Reverse())
+        {
+            @if (item.Id == Model.currentBoard.Id)
+            {
+                <tr style="color:green">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Semester)
+                    </td>
+                    <td>
+                        <h6>@item.StartSemester.Day/@item.StartSemester.Month/@item.StartSemester.Year</h6>
+                    </td>
+                    <td>
+                        <h6>@item.EndSemester.Value.Day/@item.EndSemester.Value.Month/@item.EndSemester.Value.Year</h6>
+                    </td>
+                    <td><h6>@Model.groupMembers[item.Id]</h6></td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr style="color:dimgray">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Semester)
+                    </td>
+                    <td>
+                        <h6>@item.StartSemester.Day/@item.StartSemester.Month/@item.StartSemester.Year</h6>
+                    </td>
+                    <td>
+                        <h6>@item.EndSemester.Value.Day/@item.EndSemester.Value.Month/@item.EndSemester.Value.Year</h6>
+                    </td>
+                    <td><h6>@Model.groupMembers[item.Id]</h6></td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

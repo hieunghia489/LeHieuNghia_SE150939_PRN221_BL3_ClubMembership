@@ -53,6 +53,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CurrentMembership[0].Student.Name)
             </th>
+            <th>Birthday</th>
             <th></th>
         </tr>
     </thead>
@@ -81,7 +82,7 @@
                     }
                    
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Code)
+                        @Html.DisplayFor(modelItem => item.Student.Code) -   @Html.DisplayFor(modelItem => item.Student.Grade.Code) -   @Html.DisplayFor(modelItem => item.Student.Major.Code)
             </td>
                     @if (item.Student.Gender)
                     {
@@ -95,7 +96,7 @@
                             @Html.DisplayFor(modelItem => item.Student.Name)
                         </td>
                     }
-                    
+                  <td>@item.Student.Birthday</td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

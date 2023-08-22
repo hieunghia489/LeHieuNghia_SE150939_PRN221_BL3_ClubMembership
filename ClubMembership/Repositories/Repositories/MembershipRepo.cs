@@ -32,7 +32,7 @@ namespace ClubMembership_Repositories.Repositories
         public Membership Get(int id)
         {
             using var context = new ClubMembershipContext();
-            return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).SingleOrDefault(c=>c.Id==id);
+            return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).Include(c => c.Student.Grade).Include(c => c.Student.Major).SingleOrDefault(c=>c.Id==id);
         }
 
         public List<Membership> GetAll()
@@ -45,7 +45,7 @@ return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).ToList();
         {
             using var context = new ClubMembershipContext();
             List<Membership> list = new List<Membership>();
-            foreach (var item in context.Memberships.Include(c => c.Club).Include(c=>c.Student))
+            foreach (var item in context.Memberships.Include(c => c.Club).Include(c=>c.Student).Include(c=>c.Student.Grade).Include(c => c.Student.Major))
             {
                 if (item.ClubId == id)
                 {        if(item.Status==true)        
@@ -59,14 +59,14 @@ return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).ToList();
         public Membership GetByCode(string code)
         {
             using var context = new ClubMembershipContext();
-            return context.Memberships.Include(t => t.Student).Include(t => t.Club).SingleOrDefault(c => c.Code==code);
+            return context.Memberships.Include(t => t.Student).Include(t => t.Club).Include(c => c.Student.Grade).Include(c => c.Student.Major).SingleOrDefault(c => c.Code==code);
         }
 
         public List<Membership> GetCurrentByClub(int id)
         {
             using var context = new ClubMembershipContext();
             List<Membership> list = new List<Membership>();
-            foreach (var item in context.Memberships.Include(c => c.Club).Include(t => t.Student))
+            foreach (var item in context.Memberships.Include(c => c.Club).Include(t => t.Student).Include(c => c.Student.Grade).Include(c => c.Student.Major))
             {
                 if (item.ClubId == id)
                 {
