@@ -11,6 +11,24 @@ namespace ClubMembership_Repositories.Repositories
 {
     public class MembershipRepo : IMembershipRepo
     {
+        public void Added(Membership membership)
+        {
+            using var context = new ClubMembershipContext();
+        context.Memberships.Add(membership);
+            context.SaveChanges();
+        }
+
+        public void Delete(Membership membership)
+        {
+            using var context = new ClubMembershipContext();
+            if (context.Memberships.Contains(membership))
+            {
+                membership.Status = false;
+                context.Memberships.Update(membership);
+                context.SaveChanges() ;
+            }
+        }
+
         public Membership Get(int id)
         {
             using var context = new ClubMembershipContext();
@@ -27,10 +45,10 @@ return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).ToList();
         {
             using var context = new ClubMembershipContext();
             List<Membership> list = new List<Membership>();
-            foreach (var item in context.Memberships.Include(c => c.Club))
+            foreach (var item in context.Memberships.Include(c => c.Club).Include(c=>c.Student))
             {
                 if (item.ClubId == id)
-                {                
+                {        if(item.Status==true)        
                         list.Add(item);
                 }
             }
@@ -54,11 +72,22 @@ return context.Memberships.Include(t=>t.Student).Include(t=>t.Club).ToList();
                 {
                     if (item.Status == true)
                     {
+                        if(item.LeaveDate==null||item.LeaveDate.Value.CompareTo(DateTime.Now)==1)
                         list.Add(item);
                     }
                 }
             }
             return list;
+        }
+
+        public void Update(Membership membership)
+        {
+            using var context = new ClubMembershipContext();
+            if (context.Memberships.Contains(membership))
+            {
+                context.Memberships.Update(membership);
+                context.SaveChanges();
+            }
         }
     }
 }

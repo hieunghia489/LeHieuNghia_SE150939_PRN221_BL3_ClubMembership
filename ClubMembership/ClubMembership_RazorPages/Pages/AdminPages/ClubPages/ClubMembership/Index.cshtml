@@ -23,37 +23,43 @@
         <td>Description</td>
         <td>@Model.Club.Description</td>
     </tr>
+    <tr>
+        <td>Members</td>
+        <td>@Model.CurrentMembership.Count</td>
+    </tr>
 
 
 </table>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-route-id="@Model.Club.Id">Create New</a>
 </p>
+<h3>Currect Member</h3>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].Code)
+                @Html.DisplayNameFor(model => model.CurrentMembership[0].Code)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].JoinDate)
+                @Html.DisplayNameFor(model => model.CurrentMembership[0].JoinDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].LeaveDate)
+                @Html.DisplayNameFor(model => model.CurrentMembership[0].LeaveDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].Student.Code)
+                @Html.DisplayNameFor(model => model.CurrentMembership[0].Student.Code)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].Student.Name)
+                @Html.DisplayNameFor(model => model.CurrentMembership[0].Student.Name)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-@foreach (var item in Model.Membership) {
+        @foreach (var item in Model.CurrentMembership)
+        {
             @if (item.Status == true)
             {
                 <tr>
@@ -77,9 +83,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Student.Code)
             </td>
-                    <td>
+                    @if (item.Student.Gender)
+                    {
+                       <td style="color:blue">
                         @Html.DisplayFor(modelItem => item.Student.Name)
-                    </td>
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="color:deeppink">
+                            @Html.DisplayFor(modelItem => item.Student.Name)
+                        </td>
+                    }
+                    
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
@@ -88,5 +104,74 @@
         </tr>   
            }
 }
+    </tbody>
+</table>
+<h3>Old member</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AllMembership[0].Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllMembership[0].JoinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllMembership[0].LeaveDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllMembership[0].Student.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllMembership[0].Student.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllMembership)
+        {
+            @if (item.LeaveDate != null)
+            {
+                @if (item.LeaveDate.Value.CompareTo(DateTime.Now) == -1)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            <h6>@item.JoinDate.Day/@item.JoinDate.Month/@item.JoinDate.Year</h6>
+                        </td>
+                            <td>
+                                <h6>@item.LeaveDate.Value.Day/@item.LeaveDate.Value.Month/@item.LeaveDate.Value.Year</h6>
+                            </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Student.Code)
+                        </td>
+                        @if (item.Student.Gender)
+                        {
+                            <td style="color:blue">
+                                @Html.DisplayFor(modelItem => item.Student.Name)
+                            </td>
+                        }
+                        else
+                        {
+                            <td style="color:deeppink">
+                                @Html.DisplayFor(modelItem => item.Student.Name)
+                            </td>
+                        }
+
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                
+                }
+            }
+        }
+        
     </tbody>
 </table>

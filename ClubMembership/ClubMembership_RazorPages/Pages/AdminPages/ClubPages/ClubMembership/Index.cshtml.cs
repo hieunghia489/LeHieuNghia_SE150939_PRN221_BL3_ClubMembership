@@ -19,7 +19,9 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
             _service = service;
         }
 
-        public IList<Membership> Membership { get;set; } = default!;
+        public IList<Membership> CurrentMembership { get;set; } = default!;
+        public IList<Membership> AllMembership { get; set; } = default!;
+
         public Club Club { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
@@ -34,8 +36,9 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
             {
                 return RedirectToPage("/Login");
             }
-            Membership = _service.GetCurrentByClub(id);
-            Club = Membership[0].Club;
+            AllMembership = _service.GetAllByClub(id);
+            CurrentMembership = _service.GetCurrentByClub(id);
+            Club = AllMembership[0].Club;
             return Page();
         }
     }

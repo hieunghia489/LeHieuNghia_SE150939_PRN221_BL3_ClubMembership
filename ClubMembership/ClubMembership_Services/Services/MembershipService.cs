@@ -12,6 +12,11 @@ namespace ClubMembership_Services.Services
     public class MembershipService : IMembershipService
     {private readonly IMembershipRepo _repo;
         public MembershipService(IMembershipRepo repo) {  _repo = repo; }
+
+        public void Added(Membership membership)=>_repo.Added(membership);
+
+        public void Delete(Membership membership)=>_repo.Delete(membership);
+
         public Membership Get(int id)=>_repo.Get(id);
 
         public List<Membership> GetAll()=>_repo.GetAll();
@@ -21,5 +26,7 @@ namespace ClubMembership_Services.Services
         public Membership GetByCode(string code)=>_repo.GetByCode(code);
 
         public List<Membership> GetCurrentByClub(int id)=>_repo.GetCurrentByClub(id);
+
+        public void Update(Membership membership)=>_repo.Update(membership);
     }
 }

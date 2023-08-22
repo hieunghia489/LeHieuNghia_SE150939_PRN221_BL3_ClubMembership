@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClubMembership_Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -11,23 +12,28 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
 {
     public class DetailsModel : PageModel
     {
-        private readonly Repositories.Models.ClubMembershipContext _context;
+        private readonly IMembershipService _service;
 
-        public DetailsModel(Repositories.Models.ClubMembershipContext context)
+        public DetailsModel(IMembershipService service)
         {
-            _context = context;
+            _service=service;
         }
 
       public Membership Membership { get; set; } = default!; 
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null || _context.Memberships == null)
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
             {
-                return NotFound();
+                return RedirectToPage("/Login");
             }
-
-            var membership = await _context.Memberships.FirstOrDefaultAsync(m => m.Id == id);
+            else
+                if (account != "Admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            var membership = _service.Get(id);
             if (membership == null)
             {
                 return NotFound();

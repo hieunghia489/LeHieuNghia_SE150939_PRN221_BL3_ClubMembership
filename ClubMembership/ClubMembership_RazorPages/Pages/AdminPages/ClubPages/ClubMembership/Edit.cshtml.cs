@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClubMembership_Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,31 +13,37 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
 {
     public class EditModel : PageModel
     {
-        private readonly Repositories.Models.ClubMembershipContext _context;
+        private readonly IMembershipService _service;
 
-        public EditModel(Repositories.Models.ClubMembershipContext context)
+        public EditModel(IMembershipService service)
         {
-            _context = context;
-        }
+            _service = service;        }
 
         [BindProperty]
-        public Membership Membership { get; set; } = default!;
+        public Membership thisMember { get; set; } = default!;
+        [BindProperty]
+        public string currectCode { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null || _context.Memberships == null)
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
             {
-                return NotFound();
+                return RedirectToPage("/Login");
             }
-
-            var membership =  await _context.Memberships.FirstOrDefaultAsync(m => m.Id == id);
+            else
+                if (account != "Admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            var membership = _service.Get(id);
             if (membership == null)
             {
                 return NotFound();
             }
-            Membership = membership;
-           ViewData["ClubId"] = new SelectList(_context.Clubs, "Id", "Code");
-           ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Code");
+            thisMember = membership;
+            currectCode = thisMember.Code;
+            ViewData["MemberCode"] = new SelectList(_service.GetAllByClub(thisMember.ClubId.Value), "Code", "Code");
             return Page();
         }
 
@@ -44,35 +51,32 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if(_service.GetByCode(thisMember.Code) != null)
             {
+                if(_service.GetByCode(thisMember.Code).Id!=thisMember.Id)
+                {
+ViewData["Nofication"] = "This Code has been used before. Please check Code Used";
+                ViewData["MemberCode"] = new SelectList(_service.GetAllByClub(thisMember.ClubId.Value), "Code", "Code");
+                    currectCode = _service.Get(thisMember.Id).Code;
                 return Page();
-            }
-
-            _context.Attach(Membership).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MembershipExists(Membership.Id))
-                {
-                    return NotFound();
                 }
-                else
+                
+            }
+            if (thisMember.LeaveDate != null)
+            {
+                if(thisMember.JoinDate.CompareTo(thisMember.LeaveDate) != -1)
                 {
-                    throw;
+                    ViewData["Nofication"] = "A member can't leave before join to club.Please check date again";
+                    ViewData["MemberCode"] = new SelectList(_service.GetAllByClub(thisMember.ClubId.Value), "Code", "Code");
+                    currectCode = _service.Get(thisMember.Id).Code;
+
+                    return Page();
                 }
             }
-
-            return RedirectToPage("./Index");
+            thisMember.Status = true;
+            _service.Update(thisMember);
+            return RedirectToPage("./Index", new {id= thisMember.ClubId.Value});
         }
 
-        private bool MembershipExists(int id)
-        {
-          return (_context.Memberships?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }

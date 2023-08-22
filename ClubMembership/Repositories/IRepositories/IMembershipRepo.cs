@@ -14,6 +14,9 @@ namespace ClubMembership_Repositories.IRepositories
         Membership GetByCode(string code);
         List<Membership> GetAllByClub(int id);
         List<Membership> GetCurrentByClub(int id);
+        void Added(Membership membership);
+        void Update(Membership membership);
+        void Delete(Membership membership);
 
     }
 }
