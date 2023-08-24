@@ -10,6 +10,13 @@ namespace ClubMembership_Repositories.Repositories
 {
     public class ClubRepo : IClubRepo
     {
+        public void Added(Club club)
+        {
+            using var context = new ClubMembershipContext();
+        context.Clubs.Add(club);
+            context.SaveChanges();
+        }
+
         public Club Get(int id)
         {
             using var context = new ClubMembershipContext();

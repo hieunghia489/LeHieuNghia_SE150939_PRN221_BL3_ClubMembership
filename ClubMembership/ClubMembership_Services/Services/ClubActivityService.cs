@@ -16,6 +16,11 @@ namespace ClubMembership_Services.Services
         {
             _repo = repo;
         }
+
+        public void Added(ClubActivity activity)=>_repo.Added(activity);
+
+        public void Delete(ClubActivity activity)=>_repo?.Delete(activity);
+
         public ClubActivity Get(int id)=>_repo.Get(id);
 
         public List<ClubActivity> GetAll()=>_repo.GetAll();

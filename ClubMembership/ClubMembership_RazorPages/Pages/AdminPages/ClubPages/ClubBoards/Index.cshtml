@@ -5,12 +5,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>All Boards in Club </h1>
-<h3>@Model.currentBoard.Club.Code - @Model.currentBoard.Club.Name</h3>
+
 
 <p>
-    <a asp-page="Create" asp-route-id="@Model.currentBoard.ClubId">Create New</a>
+    <a asp-page="Create" asp-route-id="@Model.clubId">Create New</a>
 </p>
+@if (Model.listBoards.Count == 0)
+{
+    <h4>This table is empty</h4>
+}else{
+    <h1>All Boards in Club </h1>
+    <h3>@Model.currentBoard.Club.Code - @Model.currentBoard.Club.Name</h3>
 <table class="table">
     <thead>
         <tr>
@@ -72,3 +77,4 @@
         }
     </tbody>
 </table>
+}

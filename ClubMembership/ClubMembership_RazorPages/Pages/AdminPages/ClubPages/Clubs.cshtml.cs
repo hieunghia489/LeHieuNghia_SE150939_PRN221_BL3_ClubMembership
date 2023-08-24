@@ -51,7 +51,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages
             {
                
                 Members[club.Id] = _membershipService.GetCurrentByClub(club.Id).Count;
-                Activities[club.Id] = _clubActivityService.GetCurrentByClub(club.Id).Count;
+                Activities[club.Id] = _clubActivityService.GetAllByClub(club.Id).Count;
                 ClubBoards[club.Id] = _clubBoardService.GetAllByClub(club.Id).Count;
             }
             return Page();

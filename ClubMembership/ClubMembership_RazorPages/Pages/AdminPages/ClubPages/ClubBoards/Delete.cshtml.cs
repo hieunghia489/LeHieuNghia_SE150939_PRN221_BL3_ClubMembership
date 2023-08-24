@@ -25,7 +25,16 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards
         public IList<GroupMember> GroupMembers { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            else
+                if (account != "Admin")
+            {
+                return RedirectToPage("/Login");
+            }
             var clubboard = _clubBoardService.Get(id);
 
             if (clubboard == null)

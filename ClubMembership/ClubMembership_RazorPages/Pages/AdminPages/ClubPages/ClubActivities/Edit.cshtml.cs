@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClubMembership_Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,30 +13,40 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubActivities
 {
     public class EditModel : PageModel
     {
-        private readonly Repositories.Models.ClubMembershipContext _context;
+        private readonly IClubActivityService _clubActivityService;
+        private readonly IParticipantService _participantService;
 
-        public EditModel(Repositories.Models.ClubMembershipContext context)
+        public EditModel(IClubActivityService clubActivityService, IParticipantService participantService)
         {
-            _context = context;
+            _clubActivityService = clubActivityService;
+            _participantService = participantService;
         }
 
         [BindProperty]
         public ClubActivity ClubActivity { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        [BindProperty]
+        public IList<Participant> Participants { get; set; }
+        [BindProperty]
+        public bool[] Attent { get; set; }
+        [BindProperty]
+        public string[] Missions { get; set; }  
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null || _context.ClubActivities == null)
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
             {
-                return NotFound();
+                return RedirectToPage("/Login");
             }
-
-            var clubactivity =  await _context.ClubActivities.FirstOrDefaultAsync(m => m.Id == id);
-            if (clubactivity == null)
+            else
+                if (account != "Admin")
             {
-                return NotFound();
+                return RedirectToPage("/Login");
             }
-            ClubActivity = clubactivity;
-           ViewData["ClubId"] = new SelectList(_context.Clubs, "Id", "Code");
+           
+            ClubActivity = _clubActivityService.Get(id);
+            Participants = _participantService.GetByActivity(ClubActivity.Id);
+            Attent = new bool[Participants.Count];
+            Missions = new string[Participants.Count];
             return Page();
         }
 
@@ -43,35 +54,16 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubActivities
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            ClubActivity = _clubActivityService.Get(ClubActivity.Id);
+            Participants = _participantService.GetByActivity(ClubActivity.Id);
+            for(int i=0;i< Participants.Count;i++)
             {
-                return Page();
+                Participants[i].Attend = Attent[i];
+                Participants[i].Mission = Missions[i];
+                _participantService.Update(Participants[i]);
             }
-
-            _context.Attach(ClubActivity).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClubActivityExists(ClubActivity.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Details", new {id=ClubActivity.Id});
         }
 
-        private bool ClubActivityExists(int id)
-        {
-          return (_context.ClubActivities?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }

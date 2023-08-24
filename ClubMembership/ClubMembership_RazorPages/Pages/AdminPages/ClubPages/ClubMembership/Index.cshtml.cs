@@ -23,6 +23,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
         public IList<Membership> AllMembership { get; set; } = default!;
 
         public Club Club { get; set; }
+        public int clubID { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -39,6 +40,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
             AllMembership = _service.GetAllByClub(id);
             CurrentMembership = _service.GetCurrentByClub(id);
             Club = AllMembership[0].Club;
+            clubID = id;
             return Page();
         }
     }

@@ -9,50 +9,83 @@
 
 <h4>ClubActivity</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ClubActivity.Id" />
-            <div class="form-group">
-                <label asp-for="ClubActivity.ClubId" class="control-label"></label>
-                <select asp-for="ClubActivity.ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
-                <span asp-validation-for="ClubActivity.ClubId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClubActivity.Title" class="control-label"></label>
-                <input asp-for="ClubActivity.Title" class="form-control" />
-                <span asp-validation-for="ClubActivity.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClubActivity.Description" class="control-label"></label>
-                <input asp-for="ClubActivity.Description" class="form-control" />
-                <span asp-validation-for="ClubActivity.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClubActivity.StartDate" class="control-label"></label>
-                <input asp-for="ClubActivity.StartDate" class="form-control" />
-                <span asp-validation-for="ClubActivity.StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClubActivity.EndDate" class="control-label"></label>
-                <input asp-for="ClubActivity.EndDate" class="form-control" />
-                <span asp-validation-for="ClubActivity.EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClubActivity.Status" class="control-label"></label>
-                <input asp-for="ClubActivity.Status" class="form-control" />
-                <span asp-validation-for="ClubActivity.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.ClubActivity.Club)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.ClubActivity.Club.Code)
+</dd>
+<div>
+    <h4>ClubActivity</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubActivity.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubActivity.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubActivity.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubActivity.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubActivity.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubActivity.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubActivity.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubActivity.EndDate)
+        </dd>
+    </dl>
+    <form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Code
+                </th>
+                <th>Member</th>
+                <th>Join Date</th>
+                <th>
+                    Attend
+                </th>
+                <th>Mission</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i=0;i< Model.Participants.Count;i++)
+            {
+                <tr>
+                    <td>@Model.Participants[i].Membership.Code</td>
+                    <td>@Model.Participants[i].Membership.Student.Code - @Model.Participants[i].Membership.Student.Name</td>
+                    <td>@Model.Participants[i].JoinDate.Day/@Model.Participants[i].JoinDate.Month/@Model.Participants[i].JoinDate.Year</td>
+                        @if (Model.Participants[i].Attend==true)
+                        {
+                            <td><input type="checkbox" asp-for="@Model.Attent[i]" checked="checked" /></td>
+                        }
+                        else
+
+                        {
+                            <td><input type="checkbox" asp-for="@Model.Attent[i]" /></td>
+                        }
+                        <td><input type="text" asp-for="@Model.Missions[i]" value="@Model.Participants[i].Mission" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Update" />
+    </form>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index" asp-route-id="@Model.ClubActivity.Id">Back to List</a>
 </div>
 
 @section Scripts {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClubMembership_Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -11,22 +12,41 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubActivities
 {
     public class IndexModel : PageModel
     {
-        private readonly Repositories.Models.ClubMembershipContext _context;
+        private readonly IClubActivityService _service;
+        private readonly IParticipantService _participantService;
 
-        public IndexModel(Repositories.Models.ClubMembershipContext context)
+        public IndexModel(IClubActivityService service, IParticipantService participantService)
         {
-            _context = context;
+            _service = service;
+            _participantService = participantService;
         }
 
-        public IList<ClubActivity> ClubActivity { get;set; } = default!;
+        public IList<ClubActivity> AllClubActivity { get;set; } = default!;
+        public int[]ListParticipants { get; set; }
+        public int clubID { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (_context.ClubActivities != null)
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
             {
-                ClubActivity = await _context.ClubActivities
-                .Include(c => c.Club).ToListAsync();
+                return RedirectToPage("/Login");
             }
+            else
+                if (account != "Admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            AllClubActivity = _service.GetAllByClub(id);
+            ListParticipants = new int[100];
+            foreach (var activity in AllClubActivity)
+            {
+                IList<Participant> list=_participantService.GetByActivity(activity.Id);
+                ListParticipants[activity.Id] = list.Count();
+                int i = list.Count();
+            }
+            clubID = id;
+            return Page();
         }
     }
 }

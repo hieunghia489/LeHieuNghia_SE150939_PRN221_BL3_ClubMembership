@@ -11,6 +11,21 @@ namespace ClubMembership_Repositories.Repositories
 {
     public class ClubActivityRepo : IClubActivityRepo
     {
+        public void Added(ClubActivity activity)
+        {
+            using var context = new ClubMembershipContext();
+            context.ClubActivities.Add(activity);
+            context.SaveChanges();
+        }
+
+        public void Delete(ClubActivity activity)
+        {
+            using var context = new ClubMembershipContext();
+            activity.Status = false;
+            context.ClubActivities.Update(activity);
+            context.SaveChanges();
+        }
+
         public ClubActivity Get(int id)
         {
             using var context = new ClubMembershipContext();
@@ -31,7 +46,8 @@ namespace ClubMembership_Repositories.Repositories
             {
                 if(clubActivity.ClubId == id)
                 {
-                    list.Add(clubActivity);
+                    if (clubActivity.Status == true)
+                        list.Add(clubActivity);
                 }
             }
             return list;
@@ -45,7 +61,9 @@ namespace ClubMembership_Repositories.Repositories
             {
                 if (clubActivity.ClubId == id)
                 {
-                   if(clubActivity.Status==true) list.Add(clubActivity);
+                   if(clubActivity.Status==true) 
+                        if(clubActivity.EndDate.Value.CompareTo(DateTime.Now)!=-1)
+                        list.Add(clubActivity);
                 }
             }
             return list;

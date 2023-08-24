@@ -16,6 +16,10 @@ namespace ClubMembership_Services.Services
         _repo = repo;
         }
 
+        public void Added(Participant participant)=>_repo.Added(participant);
+
+        public void Delete(Participant participant)=>_repo.Delete(participant);
+
         public Participant Get(int id)=>_repo.Get(id);
 
         public List<Participant> GetAll() => _repo.GetAll();
@@ -23,5 +27,7 @@ namespace ClubMembership_Services.Services
         public List<Participant> GetByActivity(int id) => _repo.GetByActivity(id);
 
         public List<Participant> GetByMember(int id) => _repo.GetByMember(id);
+
+        public void Update(Participant participant)=>_repo.Update(participant);
     }
 }

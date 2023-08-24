@@ -6,7 +6,12 @@
 }
 
 <h1>Details</h1>
-
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.ClubActivity.Club)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.ClubActivity.Club.Code)
+</dd>
 <div>
     <h4>ClubActivity</h4>
     <hr />
@@ -35,21 +40,44 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ClubActivity.EndDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ClubActivity.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ClubActivity.Status)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ClubActivity.Club)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ClubActivity.Club.Code)
-        </dd>
     </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Code
+                </th>
+                <th>Member</th>
+                <th>Join Date</th>
+                <th>
+                    Attend
+                </th>
+                <th>Mission</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Participants)
+            {
+                <tr>
+                    <td>@item.Membership.Code</td>
+                    <td>@item.Membership.Student.Code - @item.Membership.Student.Name</td>
+                    <td>@item.JoinDate.Day/@item.JoinDate.Month/@item.JoinDate.Year</td>
+                    @if (item.Attend==true)
+                    {
+                        <td>Going...</td>
+                    }
+                    else
+                    {
+                        <td>Quit attend</td>
+                    }
+                    <td>@item.Mission</td> 
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.ClubActivity?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Adjust" asp-route-id="@Model.ClubActivity.Id">Adjust Participant</a>|
+    <a asp-page="./Index" asp-route-id="@Model.ClubActivity.Id">Back to List</a>
 </div>

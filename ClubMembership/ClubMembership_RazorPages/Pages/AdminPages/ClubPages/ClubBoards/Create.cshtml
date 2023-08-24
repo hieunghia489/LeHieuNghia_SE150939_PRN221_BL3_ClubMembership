@@ -6,52 +6,53 @@
 }
 
 
-
-<h3>Current ClubBoard</h3>
-<h6>Semester : @Model.currentBoard.Semester</h6>
-<h6>Start: @Model.currentBoard.StartSemester.Day/@Model.currentBoard.StartSemester.Month/@Model.currentBoard.StartSemester.Year</h6>
-<h6>End: @Model.currentBoard.EndSemester.Value.Day/@Model.currentBoard.EndSemester.Value.Month/@Model.currentBoard.EndSemester.Value.Year</h6>
-
-<hr />
+@if (Model.currentBoard != null)
+{
+    <h3>Current ClubBoard</h3>
+    <h6>Semester : @Model.currentBoard.Semester</h6>
+    <h6>Start: @Model.currentBoard.StartSemester.Day/@Model.currentBoard.StartSemester.Month/@Model.currentBoard.StartSemester.Year</h6>
+    <h6>End: @Model.currentBoard.EndSemester.Value.Day/@Model.currentBoard.EndSemester.Value.Month/@Model.currentBoard.EndSemester.Value.Year</h6>
+    <hr />
+}
 <h1>Create</h1>
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="newBoard.Semester" class="control-label"></label>
-                <input asp-for="newBoard.Semester" class="form-control" />
-                <span asp-validation-for="newBoard.Semester" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="newBoard.StartSemester" class="control-label"></label>
-                <input asp-for="newBoard.StartSemester" class="form-control" />
-                <span asp-validation-for="newBoard.StartSemester" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="newBoard.EndSemester" class="control-label"></label>
-                <input asp-for="newBoard.EndSemester" class="form-control" />
-                <span asp-validation-for="newBoard.EndSemester" class="text-danger"></span>
-            </div>
-            <h3> Member role:</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td>Code</td>
-                        <td>Member</td>
-                        <td>Role</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for(int i=0;i<Model.Memberships.Count;i++)
-                    {
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="newBoard.Semester" class="control-label"></label>
+                    <input asp-for="newBoard.Semester" class="form-control" />
+                    <span asp-validation-for="newBoard.Semester" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="newBoard.StartSemester" class="control-label"></label>
+                    <input asp-for="newBoard.StartSemester" class="form-control" />
+                    <span asp-validation-for="newBoard.StartSemester" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="newBoard.EndSemester" class="control-label"></label>
+                    <input asp-for="newBoard.EndSemester" class="form-control" />
+                    <span asp-validation-for="newBoard.EndSemester" class="text-danger"></span>
+                </div>
+                <h3> Member role:</h3>
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@Model.Memberships[i].Code</td>
-                            <td>@Model.Memberships[i].Student.Code - @Model.Memberships[i].Student.Name</td>
-                            <td><input type="text" asp-for="role[i]" value="Member" /></td>
+                            <td>Code</td>
+                            <td>Member</td>
+                            <td>Role</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Memberships.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.Memberships[i].Code</td>
+                                <td>@Model.Memberships[i].Student.Code - @Model.Memberships[i].Student.Name</td>
+                                <td><input type="text" asp-for="role[i]" value="Member" /></td>
                             </tr>
-                    }
-                </tbody>
+                        }
+                    </tbody>
             </table>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" asp-route-id="@Model.currentBoard.Id" />
@@ -60,6 +61,7 @@
         </form>
     </div>
 </div>
+
 <h3 class="text-danger">@ViewData["Nofication"]</h3>
 <div>
     <a asp-page="Index" asp-route-id="@Model.currentBoard.ClubId">Back to List</a>

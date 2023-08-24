@@ -32,7 +32,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
                         {
                             existed = true;
                             break;
-                        }
+                        }if (existed) break;
                     }
                     if (existed == false)
                         studentActive.Add(student);
@@ -100,9 +100,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubMembership
                     return Page();
                 }
             }
-         Console.Write(Membership.Id);
             _service.Added(Membership);
-
             return RedirectToPage("./Index",new { id=club.Id});
         }
     }

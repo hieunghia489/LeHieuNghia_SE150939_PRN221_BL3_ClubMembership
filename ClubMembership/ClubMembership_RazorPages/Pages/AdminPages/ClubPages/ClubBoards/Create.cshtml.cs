@@ -25,8 +25,17 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards
 
         public  async Task<IActionResult> OnGet(int id)
         {
-          
-       Memberships=_membershipService.GetCurrentByClub(id);
+            string account = HttpContext.Session.GetString("account");
+            if (account == null)
+            {
+                return RedirectToPage("/Login");
+            }
+            else
+                if (account != "Admin")
+            {
+                return RedirectToPage("/Login");
+            }
+            Memberships =_membershipService.GetCurrentByClub(id);
             currentBoard=_clubBoardService.GetCurrentByClub(id);
             role = new string[Memberships.Count];
             return Page();

@@ -13,5 +13,8 @@ public interface IParticipantService
         Participant Get(int id);
         List<Participant> GetByMember(int id);
         List<Participant> GetByActivity(int id);
+        void Added(Participant participant);
+        void Update(Participant participant);
+        void Delete(Participant participant);
     }
 }

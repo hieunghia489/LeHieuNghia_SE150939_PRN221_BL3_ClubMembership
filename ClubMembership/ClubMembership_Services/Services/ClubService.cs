@@ -20,5 +20,6 @@ namespace ClubMembership_Services.Services
         public List<Club> GetAll()=>_repo.GetAll();
 
         public Club GetByCode(string code)=>_repo.GetByCode(code);
+        public void Added(Club club)=>_repo.Added(club);
     }
 }

@@ -23,7 +23,7 @@ builder.Services.AddScoped<IStudentRepo, StudentRepo>();
 builder.Services.AddScoped<IClubRepo, ClubRepo>();
 builder.Services.AddScoped<IClubActivityRepo, ClubActivityRepo>();
 builder.Services.AddScoped<IMembershipRepo, MembershipRepo>();
-builder.Services.AddScoped<IClubBoardRepo, ClubBoardRepo>();
+builder.Services.AddScoped<IClubBoardRepo, ClubBoardRepo>(); 
 builder.Services.AddScoped<IGroupMemberRepo, GroupMemberRepo>();
 builder.Services.AddScoped<IParticipantRepo, ParticipantRepo>();
 builder.Services.AddSession();

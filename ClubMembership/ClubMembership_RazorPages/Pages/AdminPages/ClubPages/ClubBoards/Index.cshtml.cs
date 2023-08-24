@@ -24,7 +24,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards
         public IList<ClubBoard> listBoards { get;set; } = default!;
         public ClubBoard currentBoard { get; set; }
         public int[] groupMembers { get; set; }
-
+        public int clubId { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
             string account = HttpContext.Session.GetString("account");
@@ -44,6 +44,7 @@ namespace ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubBoards
             {
                 groupMembers[board.Id] = _groupMemberService.GetByClubBoard(board.Id).Count;
             }
+            clubId = id;
             return Page();
         }
     }

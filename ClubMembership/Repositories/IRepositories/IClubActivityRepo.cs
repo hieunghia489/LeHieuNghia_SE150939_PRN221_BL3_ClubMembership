@@ -13,5 +13,8 @@ namespace ClubMembership_Repositories.IRepositories
         ClubActivity Get(int id);
         List<ClubActivity> GetAllByClub(int id);
         List<ClubActivity> GetCurrentByClub(int id);
+        void Added(ClubActivity activity);
+        void Delete(ClubActivity activity);
+
     }
 }

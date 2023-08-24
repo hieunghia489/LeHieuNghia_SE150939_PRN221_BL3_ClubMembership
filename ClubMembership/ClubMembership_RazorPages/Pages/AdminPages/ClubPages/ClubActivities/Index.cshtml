@@ -4,38 +4,39 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-route-id="@Model.clubID">Create New</a>
 </p>
+@if (Model.AllClubActivity.Count == 0)
+{
+    <h4>This table is empty</h4>
+}else{
+<h1>Activities</h1>
+<h3>Club: @Model.AllClubActivity[0].Club.Code - @Model.AllClubActivity[0].Club.Name </h3>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].Title)
+                @Html.DisplayNameFor(model => model.AllClubActivity[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].Description)
+                @Html.DisplayNameFor(model => model.AllClubActivity[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].StartDate)
+                @Html.DisplayNameFor(model => model.AllClubActivity[0].StartDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].EndDate)
+                @Html.DisplayNameFor(model => model.AllClubActivity[0].EndDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClubActivity[0].Club)
+                @Html.DisplayNameFor(model => model.AllClubActivity[0].Participants)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ClubActivity) {
+@foreach (var item in Model.AllClubActivity) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -49,18 +50,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ListParticipants[item.Id])
+                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Club.Code)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit Attent</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-page="./Adjust" asp-route-id="@item.Id">Adjust Participant</a>|
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a> 
+                
             </td>
         </tr>
 }
     </tbody>
 </table>
+}

@@ -12,6 +12,6 @@ namespace ClubMembership_Repositories.IRepositories
         List<Club> GetAll();
         Club Get(int id);
         Club GetByCode(string code);
-
+        void Added(Club club);
     }
 }

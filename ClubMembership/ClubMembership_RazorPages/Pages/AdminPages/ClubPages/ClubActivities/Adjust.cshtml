@@ -1,0 +1,103 @@
+﻿@page
+@model ClubMembership_RazorPages.Pages.AdminPages.ClubPages.ClubActivities.AdjustModel
+
+@{
+    ViewData["Title"] = "Adjust";
+}
+
+<h1>Adjust Participant in</h1>
+<h3>Activity @Model.ClubActivity.Title
+   Description:  @Model.ClubActivity.Description
+Start: @Model.ClubActivity.StartDate - End: @Model.ClubActivity.EndDate
+</h3>
+<h4>Participant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="Participant.ClubActivityId" value="@Model.participants[0].ClubActivityId" />
+           
+            <table>
+                <tr>
+                    <td>
+                        <label asp-for="Participant.MembershipId" class="control-label"></label>
+                    </td>
+                    <td>
+                        <select asp-for="Participant.MembershipId" class="form-control" asp-items="ViewBag.MembershipId"></select>
+
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <label asp-for="Participant.JoinDate" class="control-label"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Participant.JoinDate" class="form-control" />
+
+                    </td>
+                    <td>
+                        <span asp-validation-for="Participant.JoinDate" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Participant.Mission"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Participant.Mission" value="Nothing" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="Participant.Mission" class="text-danger"></span>
+                    </td>
+                </tr>
+            </table>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+        <h3 class="text-danger">@ViewData["Nofication"]</h3>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>Member</th>
+            <th>Join Date</th>
+            <th>
+                Attend
+            </th>
+            <th>Mission</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.participants)
+        {
+            <tr>
+                <td>@item.Membership.Code</td>
+                <td>@item.Membership.Student.Code - @item.Membership.Student.Name</td>
+                <td>@item.JoinDate.Day/@item.JoinDate.Month/@item.JoinDate.Year</td>
+                @if (item.Attend == true)
+                {
+                    <td>Going...</td>
+                }
+                else
+                {
+                    <td>Quit attend</td>
+                }
+                <td>@item.Mission</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ClubActivity.Id">Edit Attent</a> |
+    <a asp-page="./Details" asp-route-id="@Model.ClubActivity.Id">Details</a> |
+    <a asp-page="Index" asp-route-id="@Model.ClubActivity.Id">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
